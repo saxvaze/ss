@@ -1,0 +1,77 @@
+﻿.ss-checkbox-wrapper .ss-checkbox-element input[type='checkbox'] {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+.ss-checkbox-wrapper .ss-checkbox-element input[type='checkbox'] + label {
+    display: flex;
+    position: relative;
+    align-items: center;
+    user-select: none;
+    -webkit-user-select: none;
+}
+.ss-checkbox-wrapper .ss-checkbox-element input[type='checkbox'] + label > span {
+    width: 6vw;
+    height: 6vw;
+    display: flex;
+    cursor: pointer;
+    margin-right: 2vw;
+    position: relative;
+    border-radius: .5vw;
+    align-items: center;
+    box-sizing: border-box;
+    background: transparent;
+    justify-content: center;
+    -webkit-user-select: none;
+    border: 0.8vw solid #a4a4a4;
+    transition: all 250ms cubic-bezier(.4,.0,.23,1);
+}
+.ss-checkbox-wrapper .ss-checkbox-element input[type='checkbox'] + label p {
+    max-width: 80%;
+}
+.ss-checkbox-wrapper .ss-checkbox-element input[type='checkbox']:checked + label > span {
+    border: 3vw solid #a4a4a4;
+    animation: shrink-bounce 200ms cubic-bezier(.4,.0,.23,1);
+}
+.ss-checkbox-wrapper .ss-checkbox-element input[type='checkbox']:checked + label > span:before {
+    content: "";
+    top: -0.5vw;
+    left: -1.2vw;
+    position: absolute;
+    transform: rotate(45deg);
+    transform-origin: 0% 100%;
+    background-color: #a4a4a4;
+    border-right: 1vw solid transparent;
+    border-bottom: 1vw solid transparent;
+    animation: checkbox-check 125ms 250ms cubic-bezier(.4,.0,.23,1) forwards;
+}
+@keyframes shrink-bounce {
+    0% {
+        transform: scale(1);
+    }
+    33% {
+        transform: scale(.85);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+@keyframes checkbox-check {
+    0% {
+        width: 0;
+        height: 0;
+        border-color: #1d1f20;
+        transform: translate3d(0,0,0) rotate(45deg);
+    }
+    33% {
+        width: .2em;
+        height: 0;
+        transform: translate3d(0,0,0) rotate(45deg);
+    }
+    100% {
+        width: .2em;
+        height: .5em;
+        border-color: #1d1f20;
+        transform: translate3d(0,-.5em,0) rotate(45deg);
+    }
+}
